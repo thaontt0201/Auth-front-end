@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onSubmit = (e) => {
@@ -14,6 +16,7 @@ const Login = () => {
         setEmail("");
         setPassword("");
         console.log(window.localStorage.getItem("token"));
+        history.push("/");
       });
   };
 
